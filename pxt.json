@@ -1,0 +1,19 @@
+{
+    "name": "pxt-IM01",
+    "version": "0.0.25",
+    "description": "",
+    "dependencies": {
+        "core": "*",
+        "radio": "*"
+    },
+    "files": [
+        "README.md",
+        "main.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "public": false,
+    "preferredEditor": "tsprj",
+    "installedVersion": "workspace:c0ee0afe-a0b7-496a-140a-1b1d8c74562c"
+}
