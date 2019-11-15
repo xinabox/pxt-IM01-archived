@@ -19,16 +19,16 @@ namespace IM01_led {
 
     //% blockId="show_color_on_led" block="Turn On %led| LED with intensity level %intensity %state|"
     //% weight=30 blockGap=8
-    //% intensity.min=0 intensity.max=10 intensity.defl=10
+    //% intensity.min=0 intensity.max=255 intensity.defl=255
     export function show_color_on_led(led: LED, intensity: number, state: STATE) {
 
         if (led == LED.GREEN) {
             if (state == STATE.TRUE) {
-                if (intensity == 10) {
+                if (intensity == 255) {
                     pins.digitalWritePin(DigitalPin.P8, 1)
                     pins.digitalWritePin(DigitalPin.P2, 0)
                 } else {
-                    pins.analogWritePin(AnalogPin.P8, (1023 * intensity) / 9)
+                    pins.analogWritePin(AnalogPin.P8, (1023 * intensity) / 254)
                     pins.digitalWritePin(DigitalPin.P2, 0)
                 }
             }
@@ -36,11 +36,11 @@ namespace IM01_led {
 
         if (led == LED.BLUE) {
             if (state == STATE.TRUE) {
-                if (intensity == 10) {
+                if (intensity == 255) {
                     pins.digitalWritePin(DigitalPin.P8, 0)
                     pins.digitalWritePin(DigitalPin.P2, 1)
                 } else {
-                    pins.analogWritePin(AnalogPin.P2, (1023 * intensity) / 9)
+                    pins.analogWritePin(AnalogPin.P2, (1023 * intensity) / 254)
                     pins.digitalWritePin(DigitalPin.P8, 0)
                 }
             }
@@ -48,12 +48,12 @@ namespace IM01_led {
 
         if (led == LED.CYAN) {
             if (state == STATE.TRUE) {
-                if (intensity == 10) {
+                if (intensity == 255) {
                     pins.digitalWritePin(DigitalPin.P8, 1)
                     pins.digitalWritePin(DigitalPin.P2, 1)
                 } else {
-                    pins.analogWritePin(AnalogPin.P2, (1023 * intensity) / 9)
-                    pins.analogWritePin(AnalogPin.P8, (1023 * intensity) / 9)
+                    pins.analogWritePin(AnalogPin.P2, (1023 * intensity) / 254)
+                    pins.analogWritePin(AnalogPin.P8, (1023 * intensity) / 254)
                 }
 
             }
