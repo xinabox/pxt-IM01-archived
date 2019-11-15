@@ -128,8 +128,7 @@ namespace IM01_led {
     //%g_value.min=0 g_value.max=10 g_value.defl=10
     //%b_value.min=0 b_value.max=10 b_value.defl=10
     export function show_bg_color_on_led(g_value: number, b_value: number, state: STATE) {
-        if (state) {
-            basic.showString("Hello!")
+        if (state == STATE.TRUE) {
             
             if (g_value == 10) {
                 pins.digitalWritePin(DigitalPin.P8, 1)
