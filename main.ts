@@ -150,12 +150,12 @@ namespace IM01_led {
         }
     }
 
-    //% blockId="blink_led_non_preset" block="Blink LED with on time %ON| ms and off time %OFF| ms with G %g_value and B %b_value values "
-    //% weight=30 blockGap=80
+    //% blockId="blink_led_non_preset" block="Blink LED once with on time %ON| ms and off time %OFF| ms with G %g_value and B %b_value values "
+    //% weight=30 blockGap=8
     //% %ON.defl=250 %OFF.defl=250
     //% g_value.min=0 g_value.max=10 g_value.defl=10
     //% b_value.min=0 b_value.max=10 b_value.defl=10
-    export function blink_led_non_preset(interval: number, ON: number, OFF: number, g_value: number, b_value: number) {
+    export function blink_led_non_preset(ON: number, OFF: number, g_value: number, b_value: number) {
         if (g_value == 10) {
             pins.digitalWritePin(DigitalPin.P8, 1)
         } else {
@@ -168,11 +168,11 @@ namespace IM01_led {
             pins.analogWritePin(AnalogPin.P2, (1023 * b_value) / 9)
         }
 
-        basic.pause(interval)
+        basic.pause(ON)
 
         pins.digitalWritePin(DigitalPin.P8, 0)
         pins.digitalWritePin(DigitalPin.P2, 0)
 
-        basic.pause(interval)
+        basic.pause(OFF)
     }
 }
