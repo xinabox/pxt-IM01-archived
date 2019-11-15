@@ -64,16 +64,16 @@ namespace IM01_led {
     //% blockId="blink_led" block="Blink LED %led| once with on time %ON| ms and off time %OFF| ms with intensity level of %intensity"
     //% weight=30 blockGap=8
     //% ON.defl=250 OFF.defl=250
-    //% intensity.min=0 intensity.max=10 intensity.defl=10
+    //% intensity.min=0 intensity.max=255 intensity.defl=255
     export function blink_led(led: LED, ON: number, OFF: number, intensity: number) {
 
         if (led == LED.GREEN) {
 
-            if (intensity == 10) {
+            if (intensity == 255) {
                 pins.digitalWritePin(DigitalPin.P8, 1)
                 pins.digitalWritePin(DigitalPin.P2, 0)
             } else {
-                pins.analogWritePin(AnalogPin.P8, (1023 * intensity) / 9)
+                pins.analogWritePin(AnalogPin.P8, (1023 * intensity) / 254)
                 pins.digitalWritePin(DigitalPin.P2, 0)
             }
 
@@ -87,11 +87,11 @@ namespace IM01_led {
 
         if (led == LED.BLUE) {
 
-            if (intensity == 10) {
+            if (intensity == 255) {
                 pins.digitalWritePin(DigitalPin.P8, 0)
                 pins.digitalWritePin(DigitalPin.P2, 1)
             } else {
-                pins.analogWritePin(AnalogPin.P2, (1023 * intensity) / 9)
+                pins.analogWritePin(AnalogPin.P2, (1023 * intensity) / 254)
                 pins.digitalWritePin(DigitalPin.P8, 0)
             }
 
@@ -105,12 +105,12 @@ namespace IM01_led {
 
         if (led == LED.CYAN) {
 
-            if (intensity == 10) {
+            if (intensity == 255) {
                 pins.digitalWritePin(DigitalPin.P8, 1)
                 pins.digitalWritePin(DigitalPin.P2, 1)
             } else {
-                pins.analogWritePin(AnalogPin.P2, (1023 * intensity) / 9)
-                pins.analogWritePin(AnalogPin.P8, (1023 * intensity) / 9)
+                pins.analogWritePin(AnalogPin.P2, (1023 * intensity) / 254)
+                pins.analogWritePin(AnalogPin.P8, (1023 * intensity) / 254)
             }
 
             basic.pause(ON)
