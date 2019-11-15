@@ -61,7 +61,7 @@ namespace IM01_led {
 
     }
 
-    //% blockId="blink_led" block="Blink LED %led| once with on time %ON| ms and off time %OFF| ms with intensity level of %intensity"
+    //% blockId="blink_led_once" block="Blink LED %led| once with on time %ON| ms and off time %OFF| ms with intensity level of %intensity"
     //% weight=30 blockGap=8
     //% ON.defl=250 OFF.defl=250
     //% intensity.min=0 intensity.max=255 intensity.defl=255
@@ -150,7 +150,7 @@ namespace IM01_led {
         }
     }
 
-    //% blockId="blink_led_non_preset" block="Blink LED once with on time %ON| ms and off time %OFF| ms with G %g_value and B %b_value values "
+    //% blockId="blink_led_non_preset_once" block="Blink LED once with on time %ON| ms and off time %OFF| ms with G %g_value and B %b_value values "
     //% weight=30 blockGap=8
     //% ON.defl=250 OFF.defl=250
     //% g_value.min=0 g_value.max=10 g_value.defl=10
