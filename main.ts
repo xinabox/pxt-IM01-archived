@@ -1,4 +1,6 @@
 //% weight=50 color=#081620 icon="O" block="IM01_led"
+//% groups = ['WINK', 'LED ON', OTHERS']
+
 namespace IM01_led {
 
     export enum STATE {
@@ -12,167 +14,104 @@ namespace IM01_led {
         //% block="GREEN"
         GREEN = 1,
         //% block="BLUE"
-        BLUE = 2,
-        //% block="CYAN"
-        CYAN = 3,
+        BLUE = 2
     }
 
-    //% blockId="show_color_on_led" block="Turn On %led| LED with intensity level %intensity %state|"
+    //% blockId="turn_on_green_led" block="IM01 turn on green LED"
+    //% group="LED ON"
     //% weight=30 blockGap=8
-    //% intensity.min=0 intensity.max=255 intensity.defl=255
-    export function show_color_on_led(led: LED, intensity: number, state: STATE) {
-
-        if (led == LED.GREEN) {
-            if (state == STATE.TRUE) {
-                if (intensity == 255) {
-                    pins.digitalWritePin(DigitalPin.P8, 1)
-                    pins.digitalWritePin(DigitalPin.P2, 0)
-                } else {
-                    pins.analogWritePin(AnalogPin.P8, (1023 * intensity) / 254)
-                    pins.digitalWritePin(DigitalPin.P2, 0)
-                }
-            }
-        }
-
-        if (led == LED.BLUE) {
-            if (state == STATE.TRUE) {
-                if (intensity == 255) {
-                    pins.digitalWritePin(DigitalPin.P8, 0)
-                    pins.digitalWritePin(DigitalPin.P2, 1)
-                } else {
-                    pins.analogWritePin(AnalogPin.P2, (1023 * intensity) / 254)
-                    pins.digitalWritePin(DigitalPin.P8, 0)
-                }
-            }
-        }
-
-        if (led == LED.CYAN) {
-            if (state == STATE.TRUE) {
-                if (intensity == 255) {
-                    pins.digitalWritePin(DigitalPin.P8, 1)
-                    pins.digitalWritePin(DigitalPin.P2, 1)
-                } else {
-                    pins.analogWritePin(AnalogPin.P2, (1023 * intensity) / 254)
-                    pins.analogWritePin(AnalogPin.P8, (1023 * intensity) / 254)
-                }
-
-            }
-        }
-
+    export function turn_on_green_led() {
+        pins.analogWritePin(AnalogPin.P8, (1023 * 128) / 255)
+        pins.digitalWritePin(DigitalPin.P2, 0)
     }
 
-    //% blockId="blink_led_once" block="Blink LED %led| once with on time %ON| ms and off time %OFF| ms with intensity level of %intensity"
+    //% blockId="turn_on_blue_led" block="IM01 turn on blue LED"
+    //% group="LED ON"
     //% weight=30 blockGap=8
-    //% ON.defl=250 OFF.defl=250
-    //% intensity.min=0 intensity.max=255 intensity.defl=255
-    export function blink_led(led: LED, ON: number, OFF: number, intensity: number) {
-
-        if (led == LED.GREEN) {
-
-            if (intensity == 255) {
-                pins.digitalWritePin(DigitalPin.P8, 1)
-                pins.digitalWritePin(DigitalPin.P2, 0)
-            } else {
-                pins.analogWritePin(AnalogPin.P8, (1023 * intensity) / 254)
-                pins.digitalWritePin(DigitalPin.P2, 0)
-            }
-
-            basic.pause(ON)
-
-            pins.digitalWritePin(DigitalPin.P8, 0)
-            pins.digitalWritePin(DigitalPin.P2, 0)
-
-            basic.pause(OFF)
-        }
-
-        if (led == LED.BLUE) {
-
-            if (intensity == 255) {
-                pins.digitalWritePin(DigitalPin.P8, 0)
-                pins.digitalWritePin(DigitalPin.P2, 1)
-            } else {
-                pins.analogWritePin(AnalogPin.P2, (1023 * intensity) / 254)
-                pins.digitalWritePin(DigitalPin.P8, 0)
-            }
-
-            basic.pause(ON)
-
-            pins.digitalWritePin(DigitalPin.P8, 0)
-            pins.digitalWritePin(DigitalPin.P2, 0)
-
-            basic.pause(OFF)
-        }
-
-        if (led == LED.CYAN) {
-
-            if (intensity == 255) {
-                pins.digitalWritePin(DigitalPin.P8, 1)
-                pins.digitalWritePin(DigitalPin.P2, 1)
-            } else {
-                pins.analogWritePin(AnalogPin.P2, (1023 * intensity) / 254)
-                pins.analogWritePin(AnalogPin.P8, (1023 * intensity) / 254)
-            }
-
-            basic.pause(ON)
-
-            pins.digitalWritePin(DigitalPin.P8, 0)
-            pins.digitalWritePin(DigitalPin.P2, 0)
-
-            basic.pause(OFF)
-        }
-
-    }
-
-    //% blockId="show_bg_color_on_led" block="Turn On LED with G %g_value and B %b_value %state"
-    //% weight=30 blockGap=8
-    //%g_value.min=0 g_value.max=10 g_value.defl=10
-    //%b_value.min=0 b_value.max=10 b_value.defl=10
-    export function show_bg_color_on_led(g_value: number, b_value: number, state: STATE) {
-        if (state == STATE.TRUE) {
-
-            if (g_value == 10) {
-                pins.digitalWritePin(DigitalPin.P8, 1)
-            } else {
-                pins.analogWritePin(AnalogPin.P8, (1023 * g_value) / 9)
-            }
-
-            if (b_value == 10) {
-                pins.digitalWritePin(DigitalPin.P2, 1)
-            } else {
-                pins.analogWritePin(AnalogPin.P2, (1023 * b_value) / 9)
-            }
-
-        } else {
-
-            pins.digitalWritePin(DigitalPin.P2, 0)
-            pins.digitalWritePin(DigitalPin.P8, 0)
-
-        }
-    }
-
-    //% blockId="blink_led_non_preset_once" block="Blink LED once with on time %ON| ms and off time %OFF| ms with G %g_value and B %b_value values "
-    //% weight=30 blockGap=8
-    //% ON.defl=250 OFF.defl=250
-    //% g_value.min=0 g_value.max=10 g_value.defl=10
-    //% b_value.min=0 b_value.max=10 b_value.defl=10
-    export function blink_led_non_preset(ON: number, OFF: number, g_value: number, b_value: number) {
-        if (g_value == 10) {
-            pins.digitalWritePin(DigitalPin.P8, 1)
-        } else {
-            pins.analogWritePin(AnalogPin.P8, (1023 * g_value) / 9)
-        }
-
-        if (b_value == 10) {
-            pins.digitalWritePin(DigitalPin.P2, 1)
-        } else {
-            pins.analogWritePin(AnalogPin.P2, (1023 * b_value) / 9)
-        }
-
-        basic.pause(ON)
-
+    export function turn_on_blue_led() {
+        pins.analogWritePin(AnalogPin.P2, (1023 * 128) / 255)
         pins.digitalWritePin(DigitalPin.P8, 0)
+    }
+
+    //% blockId="turn_on_green_led_with_intensity" block="IM01 turn on green LED with intensity %intensity"
+    //% group="LED ON"
+    //% intensity.min=0 intensity.max=255 intensity.defl=128
+    //% weight=30 blockGap=8
+    export function turn_on_green_led_with_intensity(intensity: number) {
+        pins.analogWritePin(AnalogPin.P8, (1023 * intensity) / 255)
+        pins.digitalWritePin(DigitalPin.P2, 0)
+    }
+
+    //% blockId="turn_on_blue_led_with_intensity" block="IM01 turn on blue LED with intensity %intensity"
+    //% group="LED ON"
+    //% intensity.min=0 intensity.max=255 intensity.defl=128
+    //% weight=30 blockGap=8
+    export function turn_on_blue_led_with_intensity(intensity: number) {
+        pins.analogWritePin(AnalogPin.P2, (1023 * intensity) / 255)
+        pins.digitalWritePin(DigitalPin.P8, 0)
+    }
+
+    //% blockId="turn_on_blue_green_led" block="Turn On LED with G %g_value and B %b_value"
+    //% weight=30 blockGap=8
+    //% group="LED ON"
+    //%g_value.min=0 g_value.max=255 g_value.defl=125
+    //%b_value.min=0 b_value.max=255 b_value.defl=128
+    export function turn_on_blue_green_led(g_value: number, b_value: number) {
+        pins.analogWritePin(AnalogPin.P8, (1023 * g_value) / 255)
+        pins.analogWritePin(AnalogPin.P2, (1023 * b_value) / 255)
+    }
+
+    //% blockId="wink_green_led" block="IM01 wink green LED for %dur ms"
+    //% dur.defl=250
+    //% weight=30 blockGap=8
+    //% group="WINK"
+    export function wink_green_led(dur: number) {
+        pins.analogWritePin(AnalogPin.P8, (1023 * 128) / 255)
         pins.digitalWritePin(DigitalPin.P2, 0)
 
-        basic.pause(OFF)
+        basic.pause(dur)
+
+        pins.analogWritePin(AnalogPin.P8, (1023 * 0) / 255)
+
+        basic.pause(dur)
     }
+
+    //% blockId="wink_blue_led" block="IM01 wink blue LED for %dur ms"
+    //% dur.defl=250
+    //% weight=30 blockGap=8
+    //% group="WINK"
+    export function wink_blue_led(dur: number) {
+        pins.analogWritePin(AnalogPin.P2, (1023 * 128) / 255)
+        pins.digitalWritePin(DigitalPin.P8, 0)
+
+        basic.pause(dur)
+
+        pins.analogWritePin(AnalogPin.P2, (1023 * 0) / 255)
+
+        basic.pause(dur)
+    }
+
+    //% blockId="wink_blue_green_led" block="IM01 wink blue %b_value green %g_value LED for %dur ms"
+    //% dur.defl=250
+    //% weight=30 blockGap=8
+    //% group="WINK"
+    export function wink_blue_green_led(b_value: number, g_value: number, dur: number) {
+        pins.analogWritePin(AnalogPin.P8, (1023 * b_value) / 255)
+        pins.analogWritePin(AnalogPin.P2, (1023 * g_value) / 255)
+
+        basic.pause(dur)
+
+        pins.analogWritePin(AnalogPin.P8, (1023 * 0) / 255)
+        pins.analogWritePin(AnalogPin.P2, (1023 * 0) / 255)
+
+        basic.pause(dur)
+    }
+
+    //% blockId="turn_off_leds" block="IM01 turn off all leds"
+    //% weight=30 blockGap=8
+    export function turn_off_leds() {
+        pins.digitalWritePin(DigitalPin.P8, 0)
+        pins.digitalWritePin(DigitalPin.P2, 0)
+    }
+
 }
