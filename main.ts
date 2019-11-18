@@ -1,5 +1,5 @@
 //% weight=50 color=#081620 icon="O" block="IM01_led"
-//% groups = '["WINK", "LED ON", "OTHERS"]'
+//% groups = '["WINK", "LED ON", "others"]'
 namespace IM01_led {
 
     //% blockId="turn_on_green_led" block="IM01 turn on green LED"
