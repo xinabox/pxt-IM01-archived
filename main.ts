@@ -1,5 +1,5 @@
 //% weight=50 color=#081620 icon="O" block="IM01_led"
-//% groups = '["WINK", "LED ON", "others"]'
+//% groups = '["WINK", "LED_ON", "others"]'
 namespace IM01_led {
 
     /**
@@ -16,7 +16,7 @@ namespace IM01_led {
 
 
     //% blockId="turn_on_green_led" block="IM01 turn on green LED"
-    //% group="LED ON"
+    //% group="LED_ON"
     //% weight=30 blockGap=8
     export function turn_on_green_led() {
         pins.analogWritePin(AnalogPin.P8, (1023 * 128) / 255)
@@ -24,7 +24,7 @@ namespace IM01_led {
     }
 
     //% blockId="turn_on_blue_led" block="IM01 turn on blue LED"
-    //% group="LED ON"
+    //% group="LED_ON"
     //% weight=30 blockGap=8
     export function turn_on_blue_led() {
         pins.analogWritePin(AnalogPin.P2, (1023 * 128) / 255)
@@ -32,7 +32,7 @@ namespace IM01_led {
     }
 
     //% blockId="turn_on_green_led_with_intensity" block="IM01 turn on green LED with intensity %intensity"
-    //% group="LED ON"
+    //% group="LED_ON"
     //% intensity.min=0 intensity.max=255 intensity.defl=128
     //% weight=30 blockGap=8
     export function turn_on_green_led_with_intensity(intensity: number) {
@@ -41,7 +41,7 @@ namespace IM01_led {
     }
 
     //% blockId="turn_on_blue_led_with_intensity" block="IM01 turn on blue LED with intensity %intensity"
-    //% group="LED ON"
+    //% group="LED_ON"
     //% intensity.min=0 intensity.max=255 intensity.defl=128
     //% weight=30 blockGap=8
     export function turn_on_blue_led_with_intensity(intensity: number) {
@@ -51,7 +51,7 @@ namespace IM01_led {
 
     //% blockId="turn_on_blue_green_led" block="Turn On LED with G %g_value and B %b_value"
     //% weight=30 blockGap=8
-    //% group="LED ON"
+    //% group="LED_ON"
     //%g_value.min=0 g_value.max=255 g_value.defl=125
     //%b_value.min=0 b_value.max=255 b_value.defl=128
     export function turn_on_blue_green_led(g_value: number, b_value: number) {
