@@ -2,6 +2,12 @@
 //%groups=["LED_ON", "WINK", "BLINK", "others"]
 namespace IM01_led {
 
+    //% blockId="turn_off_leds" block="IM01 turn off all leds"
+    //% weight=50 blockGap=8
+    export function turn_off_leds() {
+        pins.digitalWritePin(DigitalPin.P8, 0)
+        pins.digitalWritePin(DigitalPin.P2, 0)
+    }
 
     //% blockId="turn_on_green_led" block="IM01 turn on green LED"
     //% group="LED_ON"
@@ -217,15 +223,6 @@ namespace IM01_led {
                 basic.pause(dur / 2)
             }
         })
-    }
-
-
-
-    //% blockId="turn_off_leds" block="IM01 turn off all leds"
-    //% weight=50 blockGap=8
-    export function turn_off_leds() {
-        pins.digitalWritePin(DigitalPin.P8, 0)
-        pins.digitalWritePin(DigitalPin.P2, 0)
     }
 
 }
