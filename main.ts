@@ -1,4 +1,5 @@
 //% weight=50 color=#081620 icon="O" block="IM01_led"
+//%groups=["LED_ON", "WINK", "others"]
 namespace IM01_led {
 
 
