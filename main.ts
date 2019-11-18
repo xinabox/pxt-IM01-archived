@@ -196,15 +196,16 @@ namespace IM01_led {
         })
     }
 
-    //% blockId="blink_blue_led_dur" block="IM01 blink blue LED with period %dur ms"
+    //% blockId="blink_blue_led_period" block="IM01 blink blue LED with period %dur ms"
     //% dur.defl=500
     //% weight=4 blockGap=8
     //% group="BLINK"
-    export function blink_blue_led_dur(dur: number) {
+    export function blink_blue_led_period(dur: number) {
         control.inBackground(function () {
             while (enable == true) {
                 pins.analogWritePin(AnalogPin.P2, (1023 * 128) / 255)
                 pins.digitalWritePin(DigitalPin.P8, 0)
+                basic.showString("Hello!")
 
                 basic.pause(dur / 2)
 
