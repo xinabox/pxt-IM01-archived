@@ -205,7 +205,6 @@ namespace IM01_led {
             while (enable == true) {
                 pins.analogWritePin(AnalogPin.P2, (1023 * 128) / 255)
                 pins.digitalWritePin(DigitalPin.P8, 0)
-                basic.showString("Hello!")
 
                 basic.pause(dur / 2)
 
