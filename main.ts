@@ -19,7 +19,7 @@ namespace IM01_led {
 
     //% blockId="turn_on_blue_led" block="IM01 turn on blue LED"
     //% group="LED_ON"
-    //% weight=30 blockGap=8
+    //% weight=28 blockGap=8
     export function turn_on_blue_led() {
         pins.analogWritePin(AnalogPin.P2, (1023 * 128) / 255)
         pins.digitalWritePin(DigitalPin.P8, 0)
@@ -28,7 +28,7 @@ namespace IM01_led {
     //% blockId="turn_on_green_led_with_intensity" block="IM01 turn on green LED with intensity %intensity"
     //% group="LED_ON"
     //% intensity.min=0 intensity.max=255 intensity.defl=128
-    //% weight=30 blockGap=8
+    //% weight=26 blockGap=8
     export function turn_on_green_led_with_intensity(intensity: number) {
         pins.analogWritePin(AnalogPin.P8, (1023 * intensity) / 255)
         pins.digitalWritePin(DigitalPin.P2, 0)
@@ -37,14 +37,14 @@ namespace IM01_led {
     //% blockId="turn_on_blue_led_with_intensity" block="IM01 turn on blue LED with intensity %intensity"
     //% group="LED_ON"
     //% intensity.min=0 intensity.max=255 intensity.defl=128
-    //% weight=30 blockGap=8
+    //% weight=24 blockGap=8
     export function turn_on_blue_led_with_intensity(intensity: number) {
         pins.analogWritePin(AnalogPin.P2, (1023 * intensity) / 255)
         pins.digitalWritePin(DigitalPin.P8, 0)
     }
 
     //% blockId="turn_on_blue_green_led" block="Turn On LED with G %g_value and B %b_value"
-    //% weight=30 blockGap=8
+    //% weight=22 blockGap=8
     //% group="LED_ON"
     //%g_value.min=0 g_value.max=255 g_value.defl=125
     //%b_value.min=0 b_value.max=255 b_value.defl=128
@@ -68,7 +68,7 @@ namespace IM01_led {
     }
 
     //% blockId="wink_blue_led" block="IM01 wink blue LED "
-    //% weight=20 blockGap=8
+    //% weight=18 blockGap=8
     //% group="WINK"
     export function wink_blue_led() {
         pins.analogWritePin(AnalogPin.P2, (1023 * 128) / 255)
@@ -83,7 +83,7 @@ namespace IM01_led {
 
     //% blockId="wink_green_led_dur" block="IM01 wink green LED for %dur ms"
     //% dur.defl=250
-    //% weight=20 blockGap=8
+    //% weight=16 blockGap=8
     //% group="WINK"
     export function wink_green_led_dur(dur: number) {
         pins.analogWritePin(AnalogPin.P8, (1023 * 128) / 255)
@@ -98,7 +98,7 @@ namespace IM01_led {
 
     //% blockId="wink_blue_led_dur" block="IM01 wink blue LED for %dur ms"
     //% dur.defl=250
-    //% weight=20 blockGap=8
+    //% weight=14 blockGap=8
     //% group="WINK"
     export function wink_blue_led_dur(dur: number) {
         pins.analogWritePin(AnalogPin.P2, (1023 * 128) / 255)
@@ -113,7 +113,7 @@ namespace IM01_led {
 
     //% blockId="wink_blue_green_led" block="IM01 wink blue %b_value green %g_value LED for %dur ms"
     //% dur.defl=250
-    //% weight=20 blockGap=8
+    //% weight=12 blockGap=8
     //% b_value.min=0 b_value.max=255 b_value.defl=128
     //% g_value.min=0 g_value.max=255 g_value.defl=128
     //% group="WINK"
@@ -148,7 +148,7 @@ namespace IM01_led {
     }
 
     //% blockId="blink_blue_led" block="IM01 blink blue LED"
-    //% weight=10 blockGap=8
+    //% weight=8 blockGap=8
     //% group="BLINK"
     export function blink_blue_led() {
         control.inBackground(function () {
@@ -167,7 +167,7 @@ namespace IM01_led {
 
     //% blockId="bink_green_led_period" block="IM01 blink green LED with period %dur ms"
     //% dur.defl=500
-    //% weight=10 blockGap=8
+    //% weight=6 blockGap=8
     //% group="BLINK"
     export function blink_green_led_period(dur: number) {
         control.inBackground(function () {
@@ -186,7 +186,7 @@ namespace IM01_led {
 
     //% blockId="blink_blue_led_dur" block="IM01 blink blue LED with period %dur ms"
     //% dur.defl=500
-    //% weight=10 blockGap=8
+    //% weight=4 blockGap=8
     //% group="BLINK"
     export function blink_blue_led_dur(dur: number) {
         control.inBackground(function () {
@@ -205,7 +205,7 @@ namespace IM01_led {
 
     //% blockId="blink_blue_green_led" block="IM01 blink blue %b_value green %g_value LED with period %dur ms"
     //% dur.defl=500
-    //% weight=10 blockGap=8
+    //% weight=2 blockGap=8
     //% b_value.min=0 b_value.max=255 b_value.defl=128
     //% g_value.min=0 g_value.max=255 g_value.defl=128
     //% group="BLINK"
