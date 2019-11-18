@@ -198,7 +198,7 @@ namespace IM01_led {
 
     //% blockId="blink_blue_led_period" block="IM01 blink blue LED with period %dur ms"
     //% dur.defl=500
-    //% weight=4 blockGap=8
+    //% weight=4 blockGap=9
     //% group="BLINK"
     export function blink_blue_led_period(dur: number) {
         control.inBackground(function () {
