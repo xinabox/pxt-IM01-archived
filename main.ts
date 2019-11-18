@@ -95,6 +95,7 @@ namespace IM01_led {
 
     //% blockId="turn_off_leds" block="IM01 turn off all leds"
     //% weight=30 blockGap=8
+    //% group="others"
     export function turn_off_leds() {
         pins.digitalWritePin(DigitalPin.P8, 0)
         pins.digitalWritePin(DigitalPin.P2, 0)
