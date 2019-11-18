@@ -205,7 +205,7 @@ namespace IM01_led {
     //% weight=30 blockGap=8
     //% b_value.min=0 b_value.max=255 b_value.defl=128
     //% g_value.min=0 g_value.max=255 g_value.defl=128
-    //% group="WINK"
+    //% group="BLINK"
     export function blink_blue_green_led(b_value: number, g_value: number, dur: number) {
         control.inBackground(function () {
             while (true)
