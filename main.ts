@@ -1,4 +1,4 @@
-//% weight=50 color=#081620 icon="O" block="IM01_led"
+//% color=#081620 icon="O" block="IM01_led"
 //%groups=["LED_ON", "WINK", "BLINK", "others"]
 namespace IM01_led {
 
@@ -48,7 +48,7 @@ namespace IM01_led {
     }
 
     //% blockId="wink_green_led" block="IM01 wink green LED"
-    //% weight=30 blockGap=8
+    //% weight=20 blockGap=8
     //% group="WINK"
     export function wink_green_led() {
         pins.analogWritePin(AnalogPin.P8, (1023 * 128) / 255)
@@ -62,7 +62,7 @@ namespace IM01_led {
     }
 
     //% blockId="wink_blue_led" block="IM01 wink blue LED "
-    //% weight=30 blockGap=8
+    //% weight=20 blockGap=8
     //% group="WINK"
     export function wink_blue_led() {
         pins.analogWritePin(AnalogPin.P2, (1023 * 128) / 255)
@@ -77,37 +77,37 @@ namespace IM01_led {
 
     //% blockId="wink_green_led_dur" block="IM01 wink green LED for %dur ms"
     //% dur.defl=250
-    //% weight=30 blockGap=8
+    //% weight=20 blockGap=8
     //% group="WINK"
     export function wink_green_led_dur(dur: number) {
         pins.analogWritePin(AnalogPin.P8, (1023 * 128) / 255)
         pins.digitalWritePin(DigitalPin.P2, 0)
 
-        basic.pause(dur/2)
+        basic.pause(dur / 2)
 
         pins.analogWritePin(AnalogPin.P8, (1023 * 0) / 255)
 
-        basic.pause(dur/2)
+        basic.pause(dur / 2)
     }
 
     //% blockId="wink_blue_led_dur" block="IM01 wink blue LED for %dur ms"
     //% dur.defl=250
-    //% weight=30 blockGap=8
+    //% weight=20 blockGap=8
     //% group="WINK"
     export function wink_blue_led_dur(dur: number) {
         pins.analogWritePin(AnalogPin.P2, (1023 * 128) / 255)
         pins.digitalWritePin(DigitalPin.P8, 0)
 
-        basic.pause(dur/2)
+        basic.pause(dur / 2)
 
         pins.analogWritePin(AnalogPin.P2, (1023 * 0) / 255)
 
-        basic.pause(dur/2)
+        basic.pause(dur / 2)
     }
 
     //% blockId="wink_blue_green_led" block="IM01 wink blue %b_value green %g_value LED for %dur ms"
     //% dur.defl=250
-    //% weight=30 blockGap=8
+    //% weight=20 blockGap=8
     //% b_value.min=0 b_value.max=255 b_value.defl=128
     //% g_value.min=0 g_value.max=255 g_value.defl=128
     //% group="WINK"
@@ -115,21 +115,20 @@ namespace IM01_led {
         pins.analogWritePin(AnalogPin.P8, (1023 * g_value) / 255)
         pins.analogWritePin(AnalogPin.P2, (1023 * b_value) / 255)
 
-        basic.pause(dur/2)
+        basic.pause(dur / 2)
 
         pins.analogWritePin(AnalogPin.P8, (1023 * 0) / 255)
         pins.analogWritePin(AnalogPin.P2, (1023 * 0) / 255)
 
-        basic.pause(dur/2)
+        basic.pause(dur / 2)
     }
 
     //% blockId="blink_green_led" block="IM01 blink green LED"
-    //% weight=30 blockGap=8
+    //% weight=10 blockGap=8
     //% group="BLINK"
     export function blink_green_led() {
         control.inBackground(function () {
-            while(true)
-            {
+            while (true) {
                 pins.analogWritePin(AnalogPin.P8, (1023 * 128) / 255)
                 pins.digitalWritePin(DigitalPin.P2, 0)
 
@@ -143,7 +142,7 @@ namespace IM01_led {
     }
 
     //% blockId="blink_blue_led" block="IM01 blink blue LED"
-    //% weight=30 blockGap=8
+    //% weight=10 blockGap=8
     //% group="BLINK"
     export function blink_blue_led() {
         control.inBackground(function () {
@@ -162,12 +161,11 @@ namespace IM01_led {
 
     //% blockId="bink_green_led_period" block="IM01 blink green LED with period %dur ms"
     //% dur.defl=500
-    //% weight=30 blockGap=8
+    //% weight=10 blockGap=8
     //% group="BLINK"
     export function blink_green_led_period(dur: number) {
         control.inBackground(function () {
-            while (true)
-            {
+            while (true) {
                 pins.analogWritePin(AnalogPin.P8, (1023 * 128) / 255)
                 pins.digitalWritePin(DigitalPin.P2, 0)
 
@@ -182,12 +180,11 @@ namespace IM01_led {
 
     //% blockId="blink_blue_led_dur" block="IM01 blink blue LED with period %dur ms"
     //% dur.defl=500
-    //% weight=30 blockGap=8
+    //% weight=10 blockGap=8
     //% group="BLINK"
     export function blink_blue_led_dur(dur: number) {
         control.inBackground(function () {
-            while (true)
-            {
+            while (true) {
                 pins.analogWritePin(AnalogPin.P2, (1023 * 128) / 255)
                 pins.digitalWritePin(DigitalPin.P8, 0)
 
@@ -202,32 +199,30 @@ namespace IM01_led {
 
     //% blockId="blink_blue_green_led" block="IM01 blink blue %b_value green %g_value LED with period %dur ms"
     //% dur.defl=500
-    //% weight=30 blockGap=8
+    //% weight=10 blockGap=8
     //% b_value.min=0 b_value.max=255 b_value.defl=128
     //% g_value.min=0 g_value.max=255 g_value.defl=128
     //% group="BLINK"
     export function blink_blue_green_led(b_value: number, g_value: number, dur: number) {
         control.inBackground(function () {
-            while (true)
-            {
+            while (true) {
                 pins.analogWritePin(AnalogPin.P8, (1023 * g_value) / 255)
                 pins.analogWritePin(AnalogPin.P2, (1023 * b_value) / 255)
 
-                basic.pause(dur/2)
+                basic.pause(dur / 2)
 
                 pins.analogWritePin(AnalogPin.P8, (1023 * 0) / 255)
                 pins.analogWritePin(AnalogPin.P2, (1023 * 0) / 255)
 
-                basic.pause(dur/2)
+                basic.pause(dur / 2)
             }
         })
     }
 
-    
+
 
     //% blockId="turn_off_leds" block="IM01 turn off all leds"
-    //% weight=30 blockGap=8
-    //% group="others"
+    //% weight=50 blockGap=8
     export function turn_off_leds() {
         pins.digitalWritePin(DigitalPin.P8, 0)
         pins.digitalWritePin(DigitalPin.P2, 0)
