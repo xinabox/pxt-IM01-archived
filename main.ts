@@ -1,18 +1,5 @@
 //% weight=50 color=#081620 icon="O" block="IM01_led"
-//% groups = '["WINK", "LED_ON", "others"]'
 namespace IM01_led {
-
-    /**
-    * set a single pixel to be on (color = 1) or off (color = 0)
-    */
-    //% blockId="OLED12864_I2C_PIXEL" block="OD01 set pixel at x %x|y %y|color %color"
-    //% x.max=127 x.min=0 x.defl=0
-    //% y.max=63 y.min=0 y.defl=0
-    //% color.max=1 color.min=0 color.defl=1
-    //% weight=30 blockGap=8
-    export function pixel(x: number, y: number, color: number = 1) {
-        basic.showString("Hello!")
-    }
 
 
     //% blockId="turn_on_green_led" block="IM01 turn on green LED"
