@@ -1,21 +1,6 @@
 //% weight=50 color=#081620 icon="O" block="IM01_led"
 //% groups = ['WINK', 'LED ON', OTHERS']
-
 namespace IM01_led {
-
-    export enum STATE {
-        //% block="TRUE"
-        TRUE = 0,
-        //% block="FALSE"
-        FALSE = 1,
-    }
-
-    export enum LED {
-        //% block="GREEN"
-        GREEN = 1,
-        //% block="BLUE"
-        BLUE = 2
-    }
 
     //% blockId="turn_on_green_led" block="IM01 turn on green LED"
     //% group="LED ON"
