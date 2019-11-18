@@ -112,8 +112,8 @@ namespace IM01_led {
     //% g_value.min=0 g_value.max=255 g_value.defl=128
     //% group="WINK"
     export function wink_blue_green_led(b_value: number, g_value: number, dur: number) {
-        pins.analogWritePin(AnalogPin.P8, (1023 * b_value) / 255)
-        pins.analogWritePin(AnalogPin.P2, (1023 * g_value) / 255)
+        pins.analogWritePin(AnalogPin.P8, (1023 * g_value) / 255)
+        pins.analogWritePin(AnalogPin.P2, (1023 * b_value) / 255)
 
         basic.pause(dur/2)
 
@@ -210,8 +210,8 @@ namespace IM01_led {
         control.inBackground(function () {
             while (true)
             {
-                pins.analogWritePin(AnalogPin.P8, (1023 * b_value) / 255)
-                pins.analogWritePin(AnalogPin.P2, (1023 * g_value) / 255)
+                pins.analogWritePin(AnalogPin.P8, (1023 * g_value) / 255)
+                pins.analogWritePin(AnalogPin.P2, (1023 * b_value) / 255)
 
                 basic.pause(dur/2)
 
