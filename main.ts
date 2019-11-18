@@ -1,5 +1,5 @@
 //% weight=50 color=#081620 icon="O" block="IM01_led"
-//%groups=["LED_ON", "WINK", "others"]
+//%groups=["LED_ON", "WINK", "BLINK", "others"]
 namespace IM01_led {
 
 
@@ -122,6 +122,27 @@ namespace IM01_led {
 
         basic.pause(dur)
     }
+
+    //% blockId="blink_green_led" block="IM01 blink green LED"
+    //% weight=30 blockGap=8
+    //% group="BLINK"
+    export function blink_green_led() {
+        control.inBackground(function () {
+            while(true)
+            {
+                pins.analogWritePin(AnalogPin.P8, (1023 * 128) / 255)
+                pins.digitalWritePin(DigitalPin.P2, 0)
+
+                basic.pause(500)
+
+                pins.analogWritePin(AnalogPin.P8, (1023 * 0) / 255)
+
+                basic.pause(500)
+            }
+        })
+    }
+
+    
 
     //% blockId="turn_off_leds" block="IM01 turn off all leds"
     //% weight=30 blockGap=8
