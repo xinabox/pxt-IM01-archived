@@ -80,6 +80,8 @@ namespace IM01_led {
     //% blockId="wink_blue_green_led" block="IM01 wink blue %b_value green %g_value LED for %dur ms"
     //% dur.defl=250
     //% weight=30 blockGap=8
+    //% b_value.min=0 b_value.max=255 b_value.defl=128
+    //% g_value.min=0 g_value.max=255 g_value.defl=128
     //% group="WINK"
     export function wink_blue_green_led(b_value: number, g_value: number, dur: number) {
         pins.analogWritePin(AnalogPin.P8, (1023 * b_value) / 255)
