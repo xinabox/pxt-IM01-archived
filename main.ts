@@ -1,5 +1,5 @@
 //% color=#081620 icon="O" block="IM01_led"
-//% groups=['LED_OFF', 'LED_ON', 'WINK', 'BLINK']
+//% groups='["LED_OFF", "LED_ON", "WINK", "BLINK"]'
 namespace IM01_led {
 
     //% blockId="turn_off_leds" block="IM01 turn off all leds"
