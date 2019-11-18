@@ -47,11 +47,39 @@ namespace IM01_led {
         pins.analogWritePin(AnalogPin.P2, (1023 * b_value) / 255)
     }
 
-    //% blockId="wink_green_led" block="IM01 wink green LED for %dur ms"
+    //% blockId="wink_green_led" block="IM01 wink green LED"
+    //% weight=30 blockGap=8
+    //% group="WINK"
+    export function wink_green_led() {
+        pins.analogWritePin(AnalogPin.P8, (1023 * 128) / 255)
+        pins.digitalWritePin(DigitalPin.P2, 0)
+
+        basic.pause(500)
+
+        pins.analogWritePin(AnalogPin.P8, (1023 * 0) / 255)
+
+        basic.pause(500)
+    }
+
+    //% blockId="wink_blue_led" block="IM01 wink blue LED "
+    //% weight=30 blockGap=8
+    //% group="WINK"
+    export function wink_blue_led() {
+        pins.analogWritePin(AnalogPin.P2, (1023 * 128) / 255)
+        pins.digitalWritePin(DigitalPin.P8, 0)
+
+        basic.pause(500)
+
+        pins.analogWritePin(AnalogPin.P2, (1023 * 0) / 255)
+
+        basic.pause(500)
+    }
+
+    //% blockId="wink_green_led_dur" block="IM01 wink green LED for %dur ms"
     //% dur.defl=250
     //% weight=30 blockGap=8
     //% group="WINK"
-    export function wink_green_led(dur: number) {
+    export function wink_green_led_dur(dur: number) {
         pins.analogWritePin(AnalogPin.P8, (1023 * 128) / 255)
         pins.digitalWritePin(DigitalPin.P2, 0)
 
@@ -62,11 +90,11 @@ namespace IM01_led {
         basic.pause(dur)
     }
 
-    //% blockId="wink_blue_led" block="IM01 wink blue LED for %dur ms"
+    //% blockId="wink_blue_led_dur" block="IM01 wink blue LED for %dur ms"
     //% dur.defl=250
     //% weight=30 blockGap=8
     //% group="WINK"
-    export function wink_blue_led(dur: number) {
+    export function wink_blue_led_dur(dur: number) {
         pins.analogWritePin(AnalogPin.P2, (1023 * 128) / 255)
         pins.digitalWritePin(DigitalPin.P8, 0)
 
