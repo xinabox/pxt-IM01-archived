@@ -2,7 +2,11 @@
 //%groups='["LED OFF","LED ON", "WINK", "BLINK"]'
 namespace IM01_led {
 
-    let enable: boolean = true
+    let enable1: boolean = true
+    let enable2: boolean = true
+    let enable3: boolean = true
+    let enable4: boolean = true
+    let enable5: boolean = true
 
     //% blockId="turn_off_leds" block="IM01 turn off all leds"
     //% weight=50 blockGap=8
@@ -18,7 +22,12 @@ namespace IM01_led {
     export function turn_off_blink() {
         pins.digitalWritePin(DigitalPin.P8, 0)
         pins.digitalWritePin(DigitalPin.P2, 0)
-        enable = false
+        
+        enable1 = false
+        enable2 = false
+        enable3 = false
+        enable4 = false
+        enable5 = false
     }
 
     //% blockId="turn_on_green_led" block="IM01 turn on green LED"
@@ -145,8 +154,10 @@ namespace IM01_led {
     //% weight=10 blockGap=8
     //% group="BLINK"
     export function blink_green_led() {
+        enable1 = true
+
         control.inBackground(function () {
-            while (enable == true) {
+            while (enable1 == true) {
                 pins.analogWritePin(AnalogPin.P8, (1023 * 128) / 255)
                 pins.digitalWritePin(DigitalPin.P2, 0)
 
@@ -163,8 +174,10 @@ namespace IM01_led {
     //% weight=8 blockGap=8
     //% group="BLINK"
     export function blink_blue_led() {
+        enable2 = true
+
         control.inBackground(function () {
-            while (enable == true) {
+            while (enable2 == true) {
                 pins.analogWritePin(AnalogPin.P2, (1023 * 128) / 255)
                 pins.digitalWritePin(DigitalPin.P8, 0)
 
@@ -182,8 +195,10 @@ namespace IM01_led {
     //% weight=6 blockGap=8
     //% group="BLINK"
     export function blink_green_led_period(dur: number) {
+        enable3 = true
+
         control.inBackground(function () {
-            while (enable == true) {
+            while (enable3 == true) {
                 pins.analogWritePin(AnalogPin.P8, (1023 * 128) / 255)
                 pins.digitalWritePin(DigitalPin.P2, 0)
 
@@ -201,8 +216,10 @@ namespace IM01_led {
     //% weight=4 blockGap=8
     //% group="BLINK"
     export function blink_blue_led_period(dur: number) {
+        enable4 = true
+
         control.inBackground(function () {
-            while (enable == true) {
+            while (enable4 == true) {
                 pins.analogWritePin(AnalogPin.P2, (1023 * 128) / 255)
                 pins.digitalWritePin(DigitalPin.P8, 0)
 
@@ -222,8 +239,10 @@ namespace IM01_led {
     //% g_value.min=0 g_value.max=255 g_value.defl=128
     //% group="BLINK"
     export function blink_blue_green_led(b_value: number, g_value: number, dur: number) {
+        enable5 = true
+
         control.inBackground(function () {
-            while (enable == true) {
+            while (enable5 == true) {
                 pins.analogWritePin(AnalogPin.P8, (1023 * g_value) / 255)
                 pins.analogWritePin(AnalogPin.P2, (1023 * b_value) / 255)
 
