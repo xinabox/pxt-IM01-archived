@@ -1,7 +1,65 @@
 //% color=#444444 icon="\uf07b"
-//% groups=["LED OFF","LED ON", "WINK", "BLINK"]
+//% groups=["LED OFF","LED ON", "WINK", "BLINK", "SD CARD"]
 namespace IM01 {
 
+    //%block="IM01 create folder %u"
+    function createFolder(u: string): void {
+        mkdir("/sd/" + u)
+        return;
+    }
+
+    //%block="IM01 size of file %u"
+    //%u.defl="log.txt"
+    //%group="SD CARD"
+    export function sizeOfFile(u: string): number {
+        return size("/sd/im01/" + u)
+    }
+
+    //%block="IM01 remove file"
+    //%u.defl="log.txt"
+    //%group="SD CARD"
+    export function removeFile(u: string): void {
+        remove("/sd/im01/" + u)
+        return
+    }
+
+    //%block="IM01 file %u exists"
+    //%u.defl="log.txt"
+    //%group="SD CARD"
+    export function fileExists(u: string): boolean {
+        return exists("/sd/im01/" + u)
+    }
+
+    //%block="IM01 overwrite file %u with %v"
+    //%u.defl="log.txt"
+    //%group="SD CARD"
+    export function overwriteFile(u: string, v: string): void {
+        file("/sd/im01/" + u, v, "w")
+        return
+    }
+
+    //%block="IM01 append file %u with %v"
+    //%u.defl="log.txt"
+    //%group="SD CARD"
+    export function appendFile(u: string, v: string): void {
+        file("/sd/im01/" + u, v, "a")
+        return
+    }
+
+    //%block="IM01 append file %u with line %v"
+    //%u.defl="log.txt"
+    //%group="SD CARD"
+    export function appendFileLine(u: string, v: string): void {
+        file("/sd/im01/" + u, v + "\n", "a")
+        return
+    }
+
+    //%block="IM01 read file %u"
+    //%u.defl="log.txt"
+    //%group="SD CARD"
+    export function readFile(u: string): string {
+        return file_read("/sd/im01/" + u)
+    }
     let enable1: boolean = true
     let enable2: boolean = true
     let enable3: boolean = true
@@ -254,57 +312,6 @@ namespace IM01 {
                 basic.pause(dur / 2)
             }
         })
-    }
-    //%block="IM01 create folder %u"
-    function createFolder(u: string): void {
-        mkdir("/sd/" + u)
-        return;
-    }
-
-    //%block="IM01 size of file %u"
-    //%u.defl="log.txt"
-    export function sizeOfFile(u: string): number {
-        return size("/sd/im01/" + u)
-    }
-
-    //%block="IM01 remove file"
-    //%u.defl="log.txt"
-    export function removeFile(u: string): void {
-        remove("/sd/im01/" + u)
-        return
-    }
-
-    //%block="IM01 file %u exists"
-    //%u.defl="log.txt"
-    export function fileExists(u: string): boolean {
-        return exists("/sd/im01/" + u)
-    }
-    
-    //%block="IM01 overwrite file %u with %v"
-    //%u.defl="log.txt"
-    export function overwriteFile(u: string, v: string): void {
-        file("/sd/im01/" + u, v, "w")
-        return
-    }
-
-    //%block="IM01 append file %u with %v"
-    //%u.defl="log.txt"
-    export function appendFile(u: string, v: string): void {
-        file("/sd/im01/" + u, v, "a")
-        return
-    }
-
-    //%block="IM01 append file %u with line %v"
-    //%u.defl="log.txt"
-    export function appendFileLine(u: string, v: string): void {
-        file("/sd/im01/" + u, v + "\n", "a")
-        return
-    }
-
-    //%block="IM01 read file %u"
-    //%u.defl="log.txt"
-    export function readFile(u: string): string {
-        return file_read("/sd/im01/" + u)
     }
 
     //%shim=im01::_mkdir
