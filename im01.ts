@@ -1,5 +1,5 @@
 //% color=#444444 icon="\uf07b"
-//% groups=["LED OFF","LED ON", "WINK", "BLINK", "SD CARD"]
+//% groups=['SD CARD','LED OFF','LED ON','WINK', 'BLINK']
 namespace IM01 {
 
     //%block="IM01 create folder %u"
