@@ -1,19 +1,61 @@
 {
-    "name": "pxt-IM01",
-    "version": "0.0.69",
+    "name": "IM01",
+    "version": "0.0.0",
     "description": "",
     "dependencies": {
-        "core": "*",
-        "radio": "*"
+        "core": "*"
     },
+    "yotta": {
+        "config": {
+            "microbit-dal": {
+                "bluetooth": {
+                    "private_addressing": 0,
+                    "advertising_timeout": 0,
+                    "tx_power": 0,
+                    "dfu_service": 0,
+                    "event_service": 0,
+                    "device_info_service": 0,
+                    "eddystone_url": 0,
+                    "eddystone_uid": 0,
+                    "open": 0,
+                    "pairing_mode": 0,
+                    "whitelist": 1,
+                    "security_level": "SECURITY_MODE_ENCRYPTION_NO_MITM",
+                    "partial_flashing": 1,
+                    "enabled": 0
+                  }
+            }
+        }
+    },
+    "panic_on_heap_full": 0,
     "files": [
         "README.md",
-        "main.ts"
+        "main.ts",
+        "main.blocks",
+        "FATDirHandle.cpp",
+        "FATDirHandle.h",
+        "FATFileHandle.cpp",
+        "FATFileHandle.h",
+        "FATFileSystem.cpp",
+        "FATFileSystem.h",
+        "SDFileSystem.cpp",
+        "SDFileSystem.h",
+        "ccsbcs.cpp",
+        "diskio.cpp",
+        "diskio.h",
+        "ff.h",
+        "ffconf.h",
+        "ff.cpp",
+        "integer.h",
+        "im01.cpp",
+        "im01.ts"
     ],
     "testFiles": [
         "test.ts"
     ],
-    "public": false,
-    "preferredEditor": "tsprj",
-    "installedVersion": "workspace:c0ee0afe-a0b7-496a-140a-1b1d8c74562c"
+    "public": true,
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "blocksprj"
 }
