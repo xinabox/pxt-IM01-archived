@@ -279,13 +279,7 @@ namespace IM01 {
     export function fileExists(u: string): boolean {
         return exists("/sd/im01/" + u)
     }
-
-    //%block="IM01 read file %u"
-    //%u.defl="log.txt"
-    function readFile(u: string): string {
-        return ""
-    }
-
+    
     //%block="IM01 overwrite file %u with %v"
     //%u.defl="log.txt"
     export function overwriteFile(u: string, v: string): void {
@@ -305,6 +299,12 @@ namespace IM01 {
     export function appendFileLine(u: string, v: string): void {
         file("/sd/im01/" + u, v + "\n", "a")
         return
+    }
+
+    //%block="IM01 read file %u"
+    //%u.defl="log.txt"
+    export function readFile(u: string): string {
+        return file_read("/sd/im01/" + u)
     }
 
     //%shim=im01::_mkdir
@@ -333,7 +333,7 @@ namespace IM01 {
     }
 
     //%shim=im01::_read
-    function read(u: string): string {
+    function file_read(u: string): string {
         return ""
     }
 
