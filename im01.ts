@@ -1,11 +1,15 @@
 //%color=#444444 icon="\uf07b"
 //%groups=['SD CARD','LED OFF','LED ON','WINK','BLINK']
 namespace IM01 {
-
+    let sdFlag=false
     //%block="IM01 size of file %u"
     //%u.defl="log.txt"
     //%group="SD CARD"
     export function sizeOfFile(u: string): number {
+        if(sdFlag==false) {
+            createFolder("im01")
+            sdFlag=true
+        }
         return size("/sd/im01/" + u)
     }
 
@@ -13,6 +17,10 @@ namespace IM01 {
     //%u.defl="log.txt"
     //%group="SD CARD"
     export function removeFile(u: string): void {
+        if(sdFlag==false) {
+            createFolder("im01")
+            sdFlag=true
+        }
         remove("/sd/im01/" + u)
         return
     }
@@ -21,6 +29,10 @@ namespace IM01 {
     //%u.defl="log.txt"
     //%group="SD CARD"
     export function fileExists(u: string): boolean {
+        if(sdFlag==false) {
+            createFolder("im01")
+            sdFlag=true
+        }
         return exists("/sd/im01/" + u)
     }
 
@@ -28,6 +40,10 @@ namespace IM01 {
     //%u.defl="log.txt"
     //%group="SD CARD"
     export function overwriteFile(u: string, v: string): void {
+        if(sdFlag==false) {
+            createFolder("im01")
+            sdFlag=true
+        }
         file("/sd/im01/" + u, v, "w")
         return
     }
@@ -36,6 +52,10 @@ namespace IM01 {
     //%u.defl="log.txt"
     //%group="SD CARD"
     export function appendFile(u: string, v: string): void {
+        if(sdFlag==false) {
+            createFolder("im01")
+            sdFlag=true
+        }
         file("/sd/im01/" + u, v, "a")
         return
     }
@@ -44,6 +64,10 @@ namespace IM01 {
     //%u.defl="log.txt"
     //%group="SD CARD"
     export function appendFileLine(u: string, v: string): void {
+        if(sdFlag==false) {
+            createFolder("im01")
+            sdFlag=true
+        }
         file("/sd/im01/" + u, v + "\n", "a")
         return
     }
@@ -52,6 +76,10 @@ namespace IM01 {
     //%u.defl="log.txt"
     //%group="SD CARD"
     export function readFile(u: string): string {
+        if(sdFlag==false) {
+            createFolder("im01")
+            sdFlag=true
+        }
         return file_read("/sd/im01/" + u)
     }
     let enable1: boolean = true
@@ -343,6 +371,4 @@ namespace IM01 {
     function file_read(u: string): string {
         return ""
     }
-
-    createFolder("im01")
 }
