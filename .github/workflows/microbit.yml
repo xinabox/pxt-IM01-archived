@@ -30,7 +30,7 @@ jobs:
       - name: microbit compilation
         run: |
           npm install -g pxt
-          pxt target microbit
+          npm intall pxt-microbit
           pxt install
           pxt build --cloud
         env:
