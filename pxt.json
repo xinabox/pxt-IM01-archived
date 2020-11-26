@@ -55,5 +55,8 @@
             }
         }
     },
+    "disablesVariants": [
+        "mbcodal"
+    ],
     "panic_on_heap_full": 0
 }
